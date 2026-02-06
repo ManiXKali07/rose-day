@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #30001b, #000);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* 🌹 Rose */
+.scene {
+  perspective: 800px;
+}
+
+.rose {
+  position: relative;
+  width: 120px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: spin 12s linear infinite;
+}
+
+.petal {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #ff6f91, #b0003a);
+  border-radius: 50%;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 15px rgba(255,100,150,.8));
+}
+
+.p1 { transform: rotateY(0deg) translateZ(25px); }
+.p2 { transform: rotateY(72deg) translateZ(25px); }
+.p3 { transform: rotateY(144deg) translateZ(25px); }
+.p4 { transform: rotateY(216deg) translateZ(25px); }
+.p5 { transform: rotateY(288deg) translateZ(25px); }
+
+.stem {
+  position: absolute;
+  width: 12px;
+  height: 140px;
+  background: linear-gradient(#0a5, #063);
+  top: 80px;
+  left: 54px;
+  border-radius: 10px;
+}
+
+.leaf {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  background: linear-gradient(#0c6, #084);
+  border-radius: 50%;
+}
+
+.l1 { top: 120px; left: 10px; transform: rotate(-30deg); }
+.l2 { top: 140px; right: 10px; transform: rotate(30deg); }
+
+/* 💌 Card */
+.card {
+  margin-top: 30px;
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 90%;
+  max-width: 380px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: showCard 2s forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+.card h1 {
+  color: #ff8fab;
+}
+
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #ffb3c7;
+  margin: 10px 0;
+  letter-spacing: 2px;
+  animation: glow 2s infinite alternate;
+}
+
+.love {
+  margin-top: 10px;
+  color: #ffc2d1;
+  font-size: 1.2rem;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg,#ff5f7e,#ff85a2);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255,105,135,.7);
+}
+
+/* 🔊 Music Button */
+#musicToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 26px;
+  background: rgba(255,255,255,0.15);
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* 🌸 Petals */
+#petalContainer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.petal-fly {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(circle, #ff7aa2, #c9184a);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotateY(0); }
+  to { transform: rotateY(360deg); }
+}
+
+@keyframes showCard {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(255,150,180,.6); }
+  to { text-shadow: 0 0 25px rgba(255,180,210,1); }
+}
+
